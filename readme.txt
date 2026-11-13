@@ -5,7 +5,7 @@ Tags: backup, restore, migration, clone, duplicate
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,7 +35,7 @@ Remote storage destinations: Google Drive, Dropbox, OneDrive, Amazon S3 and S3-c
 
 == Installation ==
 
-1. Upload the `packvault` folder to `/wp-content/plugins/`, or install Packvault from **Plugins → Add New**.
+1. Upload the `pack-vault` folder to `/wp-content/plugins/`, or install Packvault from **Plugins → Add New**.
 2. Activate the plugin.
 3. Open **Packvault** in the admin menu and click **Back up now**.
 
@@ -80,6 +80,10 @@ Settings and scheduled events are removed. Your backup files are intentionally k
 
 == Changelog ==
 
+= 1.0.1 =
+* Updated the plugin homepage link to https://khalidbinahsan.com/pack-vault/.
+* Fixed the plugin folder name in the installation instructions.
+
 = 1.0.0 =
 * Initial release by Khalid Bin Ahsan.
 * Single-file `.packvault` backups of database, media, plugins and themes.
@@ -89,6 +93,9 @@ Settings and scheduled events are removed. Your backup files are intentionally k
 * Modern React dashboard.
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Updates the plugin homepage link.
 
 = 1.0.0 =
 First release.

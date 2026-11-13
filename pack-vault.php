@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:       Packvault – Backup, Restore & Migration
- * Plugin URI:        https://khalidbinahsan.com/packvault
+ * Plugin URI:        https://khalidbinahsan.com/pack-vault/
  * Description:       Back up your entire WordPress site into a single portable .packvault file. Download, upload, restore and migrate backups of any size, and schedule automatic daily backups. Crafted by Khalid Bin Ahsan.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.2
  * Requires PHP:      7.4
  * Author:            Khalid Bin Ahsan
@@ -20,7 +20,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'PACKVAULT_VERSION', '1.0.0' );
+define( 'PACKVAULT_VERSION', '1.0.1' );
 define( 'PACKVAULT_FILE', __FILE__ );
 define( 'PACKVAULT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PACKVAULT_URL', plugin_dir_url( __FILE__ ) );

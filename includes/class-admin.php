@@ -117,7 +117,7 @@ final class Admin {
 						'name'    => PACKVAULT_AUTHOR_NAME,
 						'url'     => PACKVAULT_AUTHOR_URL,
 						'email'   => PACKVAULT_AUTHOR_EMAIL,
-						'plugin'  => 'https://khalidbinahsan.com/packvault',
+						'plugin'  => 'https://khalidbinahsan.com/pack-vault/',
 						'reviews' => 'https://wordpress.org/support/plugin/packvault/reviews/#new-post',
 					),
 				)
