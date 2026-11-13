@@ -77,6 +77,7 @@ Settings and scheduled events are removed. Your backup files are intentionally k
 2. Backups list with download, restore and delete.
 3. Resumable import of a backup of any size.
 4. Scheduled automatic backups.
+5. Live progress while a backup is created.
 
 == Changelog ==
 
