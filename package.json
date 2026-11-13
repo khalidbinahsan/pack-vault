@@ -1,0 +1,30 @@
+{
+	"name": "pack-vault",
+	"version": "1.0.0",
+	"description": "Packvault – Backup, Restore & Migration for WordPress. Single-file .packvault backups of any size.",
+	"author": "Khalid Bin Ahsan <developer.khalidbin@gmail.com> (https://khalidbinahsan.com)",
+	"homepage": "https://khalidbinahsan.com/packvault",
+	"license": "GPL-2.0-or-later",
+	"private": true,
+	"scripts": {
+		"build": "wp-scripts build",
+		"start": "wp-scripts start",
+		"lint:js": "wp-scripts lint-js src",
+		"lint:css": "wp-scripts lint-style \"src/**/*.scss\"",
+		"plugin-zip": "wp-scripts plugin-zip"
+	},
+	"files": [
+		"build",
+		"includes",
+		"languages",
+		"src",
+		"pack-vault.php",
+		"uninstall.php",
+		"readme.txt",
+		"LICENSE",
+		"package.json"
+	],
+	"devDependencies": {
+		"@wordpress/scripts": "^30.0.0"
+	}
+}

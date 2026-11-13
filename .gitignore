@@ -1,0 +1,27 @@
+# Dependencies
+/node_modules
+/vendor
+
+# Release artifacts
+/*.zip
+/dist
+
+# Local / environment
+.env
+.env.*
+*.log
+debug.log
+
+# Editor / tooling
+.idea/
+.vscode/
+.qodo/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Private notes
+/PLAN.md

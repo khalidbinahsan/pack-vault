@@ -1,0 +1,20 @@
+# Normalize line endings (Windows dev, Linux servers / WP.org SVN)
+* text=auto eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.zip binary
+*.mo binary
+
+# Keep dev-only files out of GitHub "Download ZIP" / git archive,
+# so the downloaded zip is a clean, installable plugin.
+/.gitattributes export-ignore
+/.gitignore     export-ignore
+/.distignore    export-ignore
+/.github        export-ignore
+/PLAN.md        export-ignore

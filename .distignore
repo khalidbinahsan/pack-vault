@@ -1,0 +1,13 @@
+/.git
+/.github
+/.gitignore
+/.gitattributes
+/.distignore
+/.qodo
+/.vscode
+/.idea
+/node_modules
+/PLAN.md
+/package-lock.json
+/*.zip
+/.wordpress-org
