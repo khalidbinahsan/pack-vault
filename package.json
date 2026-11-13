@@ -1,6 +1,6 @@
 {
 	"name": "pack-vault",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Packvault – Backup, Restore & Migration for WordPress. Single-file .packvault backups of any size.",
 	"author": "Khalid Bin Ahsan <developer.khalidbin@gmail.com> (https://khalidbinahsan.com)",
 	"homepage": "https://khalidbinahsan.com/pack-vault/",

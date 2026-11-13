@@ -62,10 +62,14 @@ function Ok($text) { Write-Host "    $text" -ForegroundColor Green }
 function Fail($text) { Write-Host ''; Write-Host "ERROR: $text" -ForegroundColor Red; exit 1 }
 
 # Run a native command and stop if it fails.
+# A plain function (no param block) so flags like -q and --silent pass through untouched.
+# Use npm.cmd, not npm: npm's PowerShell wrapper (npm.ps1) re-reads the raw command
+# line, which breaks when it is called from inside a function like this one.
 function Run {
-    param([string]$Exe, [Parameter(ValueFromRemainingArguments = $true)][string[]]$Arguments)
-    & $Exe @Arguments
-    if ($LASTEXITCODE -ne 0) { Fail "'$Exe $($Arguments -join ' ')' failed (exit code $LASTEXITCODE)." }
+    $exe = $args[0]
+    $rest = @($args | Select-Object -Skip 1)
+    & $exe @rest
+    if ($LASTEXITCODE -ne 0) { Fail "'$exe $($rest -join ' ')' failed (exit code $LASTEXITCODE)." }
 }
 
 function Read-Utf8($path) { [System.IO.File]::ReadAllText($path, [System.Text.Encoding]::UTF8) }
@@ -102,8 +106,14 @@ foreach ($tool in @('git', 'npm') + $(if ($SkipSvn) { @() } else { @('svn') })) 
 $m = [regex]::Match((Read-Utf8 $MainFile), "define\(\s*'PACKVAULT_VERSION',\s*'([^']+)'")
 if (-not $m.Success) { Fail 'Could not read PACKVAULT_VERSION from pack-vault.php.' }
 $Current = $m.Groups[1].Value
-if ([version]$Version -le [version]$Current) { Fail "New version $Version must be higher than the current version $Current." }
-Ok "Current version: $Current -> new version: $Version"
+if ([version]$Version -lt [version]$Current) { Fail "New version $Version must be higher than the current version $Current." }
+if ([version]$Version -eq [version]$Current) {
+    # A previous run already bumped the files but stopped before publishing.
+    # The tag checks below make sure this version was not released yet.
+    Ok "Version is already $Version (continuing an earlier run)"
+} else {
+    Ok "Current version: $Current -> new version: $Version"
+}
 
 $readmeText = Read-Utf8 $Readme
 if ($readmeText -notmatch "(?m)^= $([regex]::Escape($Version)) =\s*$") {
@@ -138,7 +148,7 @@ if (Test-Path $PackageLock) {
 # ---------------------------------------------------------------- 3. build & lint
 
 Step 'Building assets (npm run build)'
-Run npm run build --silent
+Run npm.cmd run build --silent
 Ok 'Build finished'
 
 $php = Get-Command php -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source -First 1
